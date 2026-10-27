@@ -1,0 +1,24 @@
+name,hex,R255,G255,B255,R01,G01,B01,role
+div_teal_dark,#01665e,1,102,94,0.0039,0.4000,0.3686,"Diverging map, negative extreme (mixing / loss)"
+div_teal_light,#5ab4ac,90,180,172,0.3529,0.7059,0.6745,"Diverging map, negative midtone"
+neutral_gainsboro,#dcdcdc,220,220,220,0.8627,0.8627,0.8627,Diverging midpoint; also the NOT-MEASURED grey (zero is not missing)
+div_orange,#fc8d59,252,141,89,0.9882,0.5529,0.3490,"Diverging map, positive midtone"
+div_red_dark,#b30000,179,0,0,0.7020,0.0000,0.0000,"Diverging map, positive extreme; also POINT_COLOR"
+cond_most_sensitive,#e69f00,230,159,0,0.9020,0.6235,0.0000,Condition 'most-sensitive' (Okabe-Ito amber)
+cond_low,#0072b2,0,114,178,0.0000,0.4471,0.6980,Condition 'low' / 1x (same value as accent_blue)
+cond_high,#d55e00,213,94,0,0.8353,0.3686,0.0000,Condition 'high' / 25x (same value as accent_vermilion)
+accent_blue,#0072b2,0,114,178,0.0000,0.4471,0.6980,Okabe-Ito blue - Q2 / primary metric series
+accent_vermilion,#d55e00,213,94,0,0.8353,0.3686,0.0000,Okabe-Ito vermilion - overfit / canonical comparison
+accent_green,#009e73,0,158,115,0.0000,0.6196,0.4510,Okabe-Ito green - 'wins' series
+accent_grey,#888888,136,136,136,0.5333,0.5333,0.5333,'loses' / neutral series
+shuffled_grey,#bbbbbb,187,187,187,0.7333,0.7333,0.7333,Shuffled / null distributions
+pca_grey,#777777,119,119,119,0.4667,0.4667,0.4667,PCA reference series (vs NMF)
+nmf_purple,#9b5bd0,155,91,208,0.6078,0.3569,0.8157,NMF series
+identity_grey,#737373,115,115,115,0.4510,0.4510,0.4510,Identity / unity lines (matplotlib '0.45')
+cluster_A,#1f77b4,31,119,180,0.1216,0.4667,0.7059,Glomerulus/odorant cluster identity (matplotlib tab10)
+cluster_B,#ff7f0e,255,127,14,1.0000,0.4980,0.0549,Glomerulus/odorant cluster identity (matplotlib tab10)
+cluster_C,#2ca02c,44,160,44,0.1725,0.6275,0.1725,Glomerulus/odorant cluster identity (matplotlib tab10)
+cluster_D,#d62728,214,39,40,0.8392,0.1529,0.1569,Glomerulus/odorant cluster identity (matplotlib tab10)
+cluster_E,#9467bd,148,103,189,0.5804,0.4039,0.7412,Glomerulus/odorant cluster identity (matplotlib tab10)
+cluster_F,#8c564b,140,86,75,0.5490,0.3373,0.2941,Glomerulus/odorant cluster identity (matplotlib tab10)
+cluster_G,#e377c2,227,119,194,0.8902,0.4667,0.7608,Glomerulus/odorant cluster identity (matplotlib tab10)

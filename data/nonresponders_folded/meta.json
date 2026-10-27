@@ -1,0 +1,21 @@
+{
+  "n_clusters": 7,
+  "nmf_seed": 706231266,
+  "nmf_max_iter": 1000,
+  "n_glomeruli_total": 567,
+  "n_recruited_nonresponders": 118,
+  "n_flat_left_out": 73,
+  "n_clustered": 494,
+  "rule": "silent at low (all zero) and responding at high: HIGH column replaces the LOW column",
+  "cluster_sizes_raw_label": {
+    "0": 68,
+    "1": 106,
+    "2": 52,
+    "3": 39,
+    "4": 108,
+    "5": 95,
+    "6": 26
+  },
+  "numpy": "2.1.3",
+  "scikit_learn": "1.6.1"
+}

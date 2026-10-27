@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python notebooks/figures.py)",
+      "Bash(python dev/concordance.py --check)",
+      "Bash(python dev/concordance.py --status)",
+      "Bash(python dev/concordance.py --panels)",
+      "Bash(python dev/build_notebooks.py)",
+      "Bash(python dev/build_notebooks.py --check)",
+      "Bash(python dev/build_site.py)",
+      "Bash(python -m nbconvert --to notebook --execute:*)",
+      "Bash(python -m ipykernel install --user --name highconc:*)",
+      "Bash(python -c \"import highconc; print(highconc.__file__)\")",
+      "PowerShell(python notebooks/figures.py)",
+      "PowerShell(python dev/concordance.py --check)",
+      "PowerShell(python dev/concordance.py --status)",
+      "PowerShell(python dev/concordance.py --panels)",
+      "PowerShell(python dev/build_notebooks.py)",
+      "PowerShell(python dev/build_notebooks.py --check)",
+      "PowerShell(python dev/build_site.py)",
+      "PowerShell(python -m nbconvert --to notebook --execute:*)",
+      "PowerShell(python -m ipykernel install --user --name highconc:*)",
+      "PowerShell(python -c \"import highconc; print(highconc.__file__)\")"
+    ]
+  }
+}

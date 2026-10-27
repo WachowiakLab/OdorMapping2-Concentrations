@@ -1,0 +1,28 @@
+# build artifacts
+**/output/
+**/outputs/
+style/examples_output/
+**/data/cache/
+# ...except the NMF dimensionality-sweep caches. They are 118 KB total, they
+# take minutes of NMF to recompute, and `dimsweep.load_cached` refuses to
+# recompute implicitly — so without them in the clone the notebook cannot run
+# end to end. Found by the S5 fresh-machine test.
+!figures/nmf_dim_choice_*/data/cache/
+!figures/nmf_dim_choice_*/data/cache/*.npz
+**/__pycache__/
+*.pyc
+
+# exploration artifacts (regenerable from scratch_*.py)
+**/scratch_*.png
+**/scratch_*.html
+
+# notebook clutter
+.ipynb_checkpoints/
+
+# editor noise
+.DS_Store
+.vscode/
+.idea/
+
+# Built site: 8.7 MB, regenerate with `python dev/build_site.py`.
+notebooks/site/

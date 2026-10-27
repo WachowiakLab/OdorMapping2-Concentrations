@@ -1,0 +1,28 @@
+# Conda environment for the high-concentration figure bundle.
+#
+#   conda env create -f environment.yml
+#   conda activate highconc
+#   pip install -e .            # clustering path only
+#   pip install -e ".[pls,notebook]"   # everything
+#   pip install -e ".[chem]"           # + RDKit, only to rebuild the Fig 3D cache
+#
+# Versions match the `castrolab-dev` env the figures were generated in.
+# The two workhorse packages are NOT listed here: they are pinned git
+# dependencies in pyproject.toml, installed by the `pip install -e .` step.
+name: highconc
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy=2.0.1
+  - pandas=2.3.1
+  - scipy=1.15.3
+  - scikit-learn=1.6.1
+  - matplotlib=3.10.0
+  - seaborn=0.13.2
+  - plotly=6.5.0
+  - pyyaml
+  - pillow=11.3.0
+  - jupyterlab=4.4.4
+  - ipykernel=6.29.5
+  - pip

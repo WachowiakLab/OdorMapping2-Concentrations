@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: highconc-figures
+Version: 0.1.0
+Summary: Figure code for the high-concentration glomerular odor-mapping manuscript
+Requires-Python: >=3.11
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: pyyaml
+Requires-Dist: glom-explorer @ git+https://github.com/CastroLab/glom-explorer.git@2d0207a736d2eed733062d08a70a77741f0a48fb
+Provides-Extra: pls
+Requires-Dist: plotly; extra == "pls"
+Requires-Dist: pls-explorer @ git+https://github.com/CastroLab/pls-explorer.git@c1d4163f3b325529337ddff34cd89cb19810489b ; extra == "pls"
+Provides-Extra: chem
+Requires-Dist: rdkit; extra == "chem"
+Provides-Extra: notebook
+Requires-Dist: jupyterlab; extra == "notebook"
+Requires-Dist: ipykernel; extra == "notebook"
+Requires-Dist: jupytext; extra == "notebook"
+Provides-Extra: dev
+Requires-Dist: pillow; extra == "dev"

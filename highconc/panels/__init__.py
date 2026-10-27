@@ -1,0 +1,177 @@
+"""Panels — one function per piece of a manuscript figure.
+
+Every panel has the same shape::
+
+    panels.biclustered(d, ax=ax, conc="low")
+
+It takes a :class:`highconc.data.Dataset`, an existing ``ax``, and keyword
+arguments for anything the Utah lab might reasonably want to set differently.
+A panel never creates a figure, never calls ``plt.show`` or ``savefig``, and
+never loads data. Composition — grid layout, colorbars, panel letters — stays
+in the notebook, where it is visible and editable.
+
+Spec-dependent choices are keyword arguments with documented defaults, so a
+different convention is a call-site change rather than an edit to this file.
+"""
+
+from . import (clustering, dimchoice, flow, pls, recruitment, sankey, schematic,
+               similarity, transfer, tuning_plotly)
+from .similarity import (
+    class_colors,
+    correlation_matrix,
+    response_spectrum,
+    shared_spectrum_limit,
+    similarity_colorbar,
+)
+from .clustering import (
+    block_means,
+    bulb_limits,
+    bicluster_order,
+    biclustered,
+    cluster_contrast,
+    cluster_summary,
+    per_subject_blocks,
+    per_subject_heatmap,
+    per_subject_topography,
+    topography,
+)
+from .dimchoice import consensus, stability, variance_explained, variance_slope
+from .flow import (
+    angle_by_cluster,
+    angle_hist,
+    coherence_matrix,
+    data_box_aspect,
+    flow_3d,
+    style_3d,
+)
+from .pls import (
+    block_parity,
+    cluster_parity,
+    component_selection,
+    decile_calibration,
+    decoding_matrix,
+    glom_map,
+    loading_outer,
+    loading_skyline,
+    map_colorbar,
+    map_limits,
+    mean_parity,
+    model_zoo,
+    parity_by_low_input,
+    pattern_correlation_hist,
+    pattern_norm_parity,
+    remixing_table,
+    residual_hist,
+    responding_parity,
+    rsa_scatter,
+    rules_matrix,
+    scaled_parity,
+    scaled_vs_recruited,
+    square_parity_axes,
+    topk_retrieval,
+    weight_blocks,
+    weight_matrix,
+)
+from .schematic import cartoon_map, flow_field, vector_strip, weight_glyph
+from .transfer import (
+    edge_table,
+    improvement_matrix,
+    pvalue_matrix,
+    significance_legend,
+)
+from .recruitment import (
+    by_chem_class,
+    by_cluster,
+    ceiling_bars,
+    gain_hist,
+    low_rate_map,
+    model_scores,
+    predictability,
+    propensity_hist,
+    propensity_map,
+    recruited_low_rate_hist,
+    sparseness_hist,
+    threshold_robustness,
+)
+
+__all__ = [
+    "clustering",
+    "dimchoice",
+    "flow",
+    "recruitment",
+    "pls",
+    "sankey",
+    "schematic",
+    "transfer",
+    "bicluster_order",
+    "biclustered",
+    "cluster_contrast",
+    "cluster_summary",
+    "per_subject_blocks",
+    "per_subject_heatmap",
+    "per_subject_topography",
+    "block_means",
+    "bulb_limits",
+    "topography",
+    "angle_by_cluster",
+    "angle_hist",
+    "coherence_matrix",
+    "data_box_aspect",
+    "flow_3d",
+    "style_3d",
+    "consensus",
+    "stability",
+    "variance_explained",
+    "variance_slope",
+    "by_chem_class",
+    "by_cluster",
+    "ceiling_bars",
+    "gain_hist",
+    "low_rate_map",
+    "model_scores",
+    "predictability",
+    "propensity_hist",
+    "propensity_map",
+    "recruited_low_rate_hist",
+    "sparseness_hist",
+    "threshold_robustness",
+    "block_parity",
+    "cluster_parity",
+    "component_selection",
+    "decile_calibration",
+    "decoding_matrix",
+    "glom_map",
+    "loading_outer",
+    "loading_skyline",
+    "map_colorbar",
+    "map_limits",
+    "mean_parity",
+    "model_zoo",
+    "parity_by_low_input",
+    "pattern_correlation_hist",
+    "pattern_norm_parity",
+    "remixing_table",
+    "residual_hist",
+    "responding_parity",
+    "rsa_scatter",
+    "rules_matrix",
+    "scaled_parity",
+    "scaled_vs_recruited",
+    "square_parity_axes",
+    "topk_retrieval",
+    "weight_blocks",
+    "weight_matrix",
+    "class_colors",
+    "correlation_matrix",
+    "response_spectrum",
+    "shared_spectrum_limit",
+    "similarity_colorbar",
+    "cartoon_map",
+    "flow_field",
+    "vector_strip",
+    "weight_glyph",
+    "edge_table",
+    "improvement_matrix",
+    "pvalue_matrix",
+    "significance_legend",
+]

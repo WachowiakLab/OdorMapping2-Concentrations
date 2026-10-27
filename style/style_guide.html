@@ -1,0 +1,677 @@
+<title>highconcmss Figure Style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+
+<style>
+:root{
+  --ground:#f6f8f7;
+  --surface:#ffffff;
+  --surface-sunk:#eef2f1;
+  --ink:#101a19;
+  --ink-soft:#3d4c4b;
+  --muted:#5f6f6e;
+  --rule:#dbe3e1;
+  --rule-strong:#c2cecc;
+  --accent:#01665e;
+  --accent-soft:#e2efed;
+  --alert:#b30000;
+  --alert-soft:#f9e9e6;
+  --shadow:0 1px 2px rgba(16,26,25,.05),0 8px 24px -18px rgba(16,26,25,.35);
+
+  --f-sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+
+  --measure:68ch;
+  --pad:clamp(1.15rem,4vw,2.5rem);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0d1312;
+    --surface:#141c1b;
+    --surface-sunk:#111817;
+    --ink:#e8eeec;
+    --ink-soft:#c3cfcd;
+    --muted:#8fa19f;
+    --rule:#242f2e;
+    --rule-strong:#33403f;
+    --accent:#5ab4ac;
+    --accent-soft:#122a28;
+    --alert:#fc8d59;
+    --alert-soft:#2a1a13;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0d1312;
+  --surface:#141c1b;
+  --surface-sunk:#111817;
+  --ink:#e8eeec;
+  --ink-soft:#c3cfcd;
+  --muted:#8fa19f;
+  --rule:#242f2e;
+  --rule-strong:#33403f;
+  --accent:#5ab4ac;
+  --accent-soft:#122a28;
+  --alert:#fc8d59;
+  --alert-soft:#2a1a13;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -18px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--f-sans);
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:52rem;margin:0 auto;padding:0 var(--pad) 6rem}
+
+/* ---------- masthead ---------- */
+header.mast{padding:clamp(2.5rem,7vw,4.5rem) 0 0}
+.eyebrow{
+  font-family:var(--f-mono);font-size:.72rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+  margin:0 0 1rem;
+}
+h1{
+  font-size:clamp(2rem,6vw,3rem);line-height:1.06;letter-spacing:-.02em;
+  font-weight:600;margin:0 0 .9rem;text-wrap:balance;
+}
+.lede{
+  font-size:clamp(1.02rem,2.3vw,1.16rem);color:var(--ink-soft);
+  max-width:var(--measure);margin:0 0 2rem;text-wrap:pretty;
+}
+.lede strong{font-weight:600;color:var(--ink)}
+
+/* the paper's own diverging map, doubling as the page's rule */
+.mast-band{
+  height:14px;border-radius:2px;margin:0 0 .55rem;
+  background:linear-gradient(90deg,#01665e 0%,#2e8d85 12.5%,#5bb4ac 25%,#9cc8c4 37.5%,
+    #dcdbdb 50%,#ecb499 62.5%,#fb8b58 75%,#d6452b 87.5%,#b30000 100%);
+}
+.band-key{
+  display:flex;justify-content:space-between;font-family:var(--f-mono);
+  font-size:.7rem;color:var(--muted);margin-bottom:2.6rem;
+}
+
+/* ---------- nav ---------- */
+nav.toc{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb,var(--ground) 92%,transparent);
+  backdrop-filter:blur(8px);
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  margin-bottom:3rem;
+}
+.toc-inner{
+  display:flex;gap:.15rem;overflow-x:auto;padding:.5rem 0;
+  scrollbar-width:thin;
+}
+.toc a{
+  flex:0 0 auto;font-family:var(--f-mono);font-size:.73rem;font-weight:500;
+  color:var(--muted);text-decoration:none;padding:.32rem .6rem;border-radius:3px;
+  white-space:nowrap;
+}
+.toc a:hover{color:var(--accent);background:var(--accent-soft)}
+.toc a:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+
+/* ---------- sections ---------- */
+section{margin:0 0 4rem;scroll-margin-top:4rem}
+.sec-head{
+  display:flex;align-items:baseline;gap:.8rem;
+  border-top:1px solid var(--rule-strong);padding-top:.9rem;margin-bottom:1.4rem;
+}
+.sec-num{
+  font-family:var(--f-mono);font-size:.8rem;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;flex:0 0 auto;
+}
+h2{font-size:1.5rem;line-height:1.2;font-weight:600;letter-spacing:-.012em;margin:0;text-wrap:balance}
+h3{
+  font-size:1.02rem;font-weight:600;margin:2rem 0 .55rem;letter-spacing:-.005em;
+}
+h3:first-of-type{margin-top:.5rem}
+p{max-width:var(--measure);margin:0 0 1rem;text-wrap:pretty}
+ul,ol{max-width:var(--measure);margin:0 0 1rem;padding-left:1.15rem}
+li{margin-bottom:.42rem}
+li::marker{color:var(--muted)}
+strong{font-weight:600}
+em{color:var(--ink-soft)}
+code{
+  font-family:var(--f-mono);font-size:.86em;background:var(--surface-sunk);
+  border:1px solid var(--rule);border-radius:3px;padding:.08em .34em;
+}
+a{color:var(--accent)}
+.note{color:var(--muted);font-size:.92rem}
+
+/* ---------- callouts ---------- */
+.rule-box{
+  background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);
+  border-radius:0 4px 4px 0;padding:1rem 1.15rem;margin:0 0 1.25rem;box-shadow:var(--shadow);
+}
+.rule-box p:last-child,.gotcha p:last-child{margin-bottom:0}
+.rule-box .rb-title{
+  font-family:var(--f-mono);font-size:.72rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.4rem;
+}
+.gotcha{
+  background:var(--alert-soft);border:1px solid var(--rule);border-left:3px solid var(--alert);
+  border-radius:0 4px 4px 0;padding:1rem 1.15rem;margin:0 0 1rem;
+}
+.gotcha h4{
+  font-size:.98rem;font-weight:600;margin:0 0 .4rem;color:var(--ink);
+}
+.gotcha .tag{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--alert);margin-right:.5rem;
+}
+
+/* ---------- swatches ---------- */
+.swatches{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:.7rem;margin:0 0 1.5rem;
+}
+.sw{background:var(--surface);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.sw .chip{height:46px;display:block;border-bottom:1px solid var(--rule)}
+.sw .meta{padding:.45rem .55rem .5rem}
+.sw .nm{font-size:.78rem;font-weight:600;line-height:1.3;display:block}
+.sw .hx{
+  font-family:var(--f-mono);font-size:.72rem;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.02em;
+}
+.sw .ro{display:block;font-size:.72rem;color:var(--muted);line-height:1.35;margin-top:.2rem}
+
+.clusters{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.4rem}
+.cl{
+  width:66px;border:1px solid var(--rule);border-radius:4px;overflow:hidden;
+  background:var(--surface);text-align:center;
+}
+.cl .chip{height:36px;display:block}
+.cl .lb{
+  font-family:var(--f-mono);font-size:.74rem;font-weight:600;padding:.24rem 0 .3rem;display:block;
+}
+.cl .hx{font-family:var(--f-mono);font-size:.6rem;color:var(--muted);display:block;padding-bottom:.3rem}
+
+.ramp{margin:0 0 1.4rem}
+.ramp .bar{height:34px;border-radius:3px;border:1px solid var(--rule)}
+.ramp .lbl{
+  display:flex;justify-content:space-between;font-family:var(--f-mono);
+  font-size:.7rem;color:var(--muted);margin-top:.35rem;
+}
+.ramp .cap{font-size:.88rem;color:var(--ink-soft);margin:.55rem 0 0;max-width:var(--measure)}
+.bar-seq{background:linear-gradient(90deg,#000004 0%,#1d1147 12.5%,#51127c 25%,#832681 37.5%,
+  #b73779 50%,#e75263 62.5%,#fc8961 75%,#fec488 87.5%,#fcfdbf 100%)}
+.bar-div{background:linear-gradient(90deg,#01665e 0%,#2e8d85 12.5%,#5bb4ac 25%,#9cc8c4 37.5%,
+  #dcdbdb 50%,#ecb499 62.5%,#fb8b58 75%,#d6452b 87.5%,#b30000 100%)}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 1.5rem;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:.55rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--f-mono);font-size:.7rem;font-weight:600;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);background:var(--surface-sunk);
+  border-bottom:1px solid var(--rule-strong);white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:none}
+td.mono,th.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td .dot{
+  display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:.45rem;
+  border:1px solid var(--rule-strong);vertical-align:-1px;
+}
+
+/* ---------- checklist ---------- */
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:1.5rem}
+.check-card{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:.95rem 1.05rem}
+.check-card h4{
+  font-family:var(--f-mono);font-size:.72rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 .65rem;
+}
+.check-card ul{list-style:none;padding:0;margin:0}
+.check-card li{display:flex;gap:.55rem;align-items:flex-start;margin-bottom:.5rem;font-size:.88rem;line-height:1.45}
+.check-card input[type=checkbox]{
+  margin:.28rem 0 0;accent-color:var(--accent);flex:0 0 auto;width:14px;height:14px;cursor:pointer;
+}
+.check-card label{cursor:pointer}
+
+/* ---------- assets ---------- */
+.assets td:first-child{font-family:var(--f-mono);font-size:.82rem;white-space:nowrap}
+
+footer{
+  border-top:1px solid var(--rule-strong);padding-top:1.2rem;margin-top:1rem;
+  font-size:.85rem;color:var(--muted);max-width:var(--measure);
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Burton · Wachowiak · Castro — figure conventions</p>
+  <h1>highconcmss Figure Style</h1>
+  <p class="lede">For collaborators porting figures made in other software into the manuscript figure set. This guide is <strong>tool-agnostic</strong> — it states the target; how you hit it in MATLAB, R, Igor, Prism, or by hand is up to you. Where a rule exists for a non-obvious reason, the reason is given. Several are scars from Illustrator misrendering things, and skipping them costs an afternoon.</p>
+  <div class="rule-box" style="margin-top:.5rem">
+    <span class="rb-title">If you just need to make a figure</span>
+    <p>Go to <code>for-collaborators/</code>. It has a paste-anywhere prompt for any AI assistant, an importable Python module, and a Claude Code skill — all generated from one source, so they agree. This page is the reasoning behind what they do.</p>
+    <p style="margin-top:.5rem">Prefer code to prose? <code>style_reference.ipynb</code> is this document as a runnable notebook — every rule demonstrated on synthetic data.</p>
+  </div>
+  <div class="gotcha" style="margin-bottom:1.5rem">
+    <h4><span class="tag">scope</span>What these rules were derived from</h4>
+    <p>These conventions come from the analysis figures in <code>figures/</code> — the NMF/PLS work, Fig 4 and supplements. The earlier drafts of Figs 1–3, 5 and 6 used a black-background hot colormap for ΔF. <strong>The standard sequential map is magma</strong> — black at zero, pale yellow at the ceiling, on the same dark ground (an earlier version of this guide set OrRd on white; the repo’s <code>highconc.style.SEQ</code> and the paper are magma now). One documented exception: raw photometric bulb activity maps keep their acquisition colormap.</p>
+  </div>
+  <div class="mast-band" role="img" aria-label="The house diverging colormap, teal through neutral grey to red"></div>
+  <div class="band-key"><span>#01665e</span><span>gainsboro</span><span>#b30000</span></div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <div class="toc-inner">
+    <a href="#short">Short version</a>
+    <a href="#colour">1 · Colour</a>
+    <a href="#type">2 · Type</a>
+    <a href="#axes">3 · Axes</a>
+    <a href="#types">4 · By figure type</a>
+    <a href="#export">5 · Export</a>
+    <a href="#gotchas">6 · Illustrator</a>
+    <a href="#handtune">7 · Hand-tuning</a>
+    <a href="#prov">8 · Provenance</a>
+    <a href="#known">9 · Known gaps</a>
+    <a href="#check">Checklist</a>
+    <a href="#assets">Files</a>
+  </div>
+</nav>
+
+<section id="short">
+  <div class="sec-head"><span class="sec-num">00</span><h2>The short version</h2></div>
+  <p>If you do only five things:</p>
+  <ol>
+    <li><strong>Export vector (PDF or SVG) with text kept as text</strong> — not outlines, not raster.</li>
+    <li><strong>Arial</strong>, 8–9 pt for tick labels and body text, 11–12 pt bold for panel letters.</li>
+    <li><strong>Sequential data → magma. Signed data → the teal↔red diverging map. Categories → the cluster colours.</strong> Never a rainbow, never jet.</li>
+    <li><strong>Top and right spines off.</strong> Ticks small or absent.</li>
+    <li><strong>Fix the colour scale across every panel that will be compared</strong>, and state the limits in the caption.</li>
+  </ol>
+</section>
+
+<section id="colour">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Colour</h2></div>
+
+  <h3>Sequential — activation and magnitudes</h3>
+  <div class="ramp">
+    <div class="bar bar-seq" role="img" aria-label="magma sequential colormap from black to pale yellow"></div>
+    <div class="lbl"><span>#000004 · low</span><span>magma</span><span>high · #fcfdbf</span></div>
+    <p class="cap">ΔF/F, magnitudes, densities, response matrices — anything running from “nothing” to “a lot” with no meaningful zero-crossing. Load <code>seq_magma_256.csv</code> if your tool doesn’t ship magma. In R it’s <code>viridisLite::magma(256)</code>; Fiji ships the <code>mpl-magma</code> LUT. Figure 8’s p-value matrix is the one panel that keeps OrRd, passed explicitly.</p>
+  </div>
+
+  <h3>Diverging — signed weights and differences</h3>
+  <div class="ramp">
+    <div class="bar bar-div" role="img" aria-label="Teal to gainsboro to red diverging colormap"></div>
+    <div class="lbl"><span>−max</span><span>0 · gainsboro</span><span>+max</span></div>
+    <p class="cap">PLS weight matrices, block structure, observed − predicted differences. The neutral midpoint is grey rather than white, so zero reads as “nothing here” and stays distinguishable from the page.</p>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>Position</th><th class="mono">Hex</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td>−max</td><td class="mono"><span class="dot" style="background:#01665e"></span>#01665e</td><td>strong negative — mixing / loss</td></tr>
+      <tr><td>−mid</td><td class="mono"><span class="dot" style="background:#5ab4ac"></span>#5ab4ac</td><td></td></tr>
+      <tr><td><strong>0</strong></td><td class="mono"><span class="dot" style="background:#dcdcdc"></span>#dcdcdc</td><td><strong>zero — and it must land on zero</strong></td></tr>
+      <tr><td>+mid</td><td class="mono"><span class="dot" style="background:#fc8d59"></span>#fc8d59</td><td></td></tr>
+      <tr><td>+max</td><td class="mono"><span class="dot" style="background:#b30000"></span>#b30000</td><td>strong positive — gain</td></tr>
+    </tbody>
+  </table></div>
+  <div class="rule-box">
+    <span class="rb-title">Rule</span>
+    <p>The midpoint must be zero. Set limits symmetrically (<code>vmin = −vmax</code>) or use a norm that pins the centre. A diverging map centred anywhere but zero is a bug, not a style choice.</p>
+  </div>
+  <p class="note">Where a diverging map is needed but the quantity is non-negative — block norms, for instance — the same palette is reused from its midpoint upward. That’s intentional, for visual family resemblance across panels.</p>
+
+  <h3>Categorical — the concentration conditions</h3>
+  <p>The paper's <strong>primary</strong> categorical scheme, and the one in the most panels. Colourblind-safe, ordered weakest → strongest — which is the order they should appear in every legend. <strong>A condition is the same colour in every figure in the paper.</strong></p>
+  <div class="swatches">
+    <div class="sw"><span class="chip" style="background:#e69f00"></span><span class="meta"><span class="nm">'most-sensitive'</span><span class="hx">#e69f00</span><span class="ro">Okabe-Ito amber</span></span></div>
+    <div class="sw"><span class="chip" style="background:#0072b2"></span><span class="meta"><span class="nm">'low' (1x)</span><span class="hx">#0072b2</span><span class="ro">Okabe-Ito blue — same as the accent blue</span></span></div>
+    <div class="sw"><span class="chip" style="background:#d55e00"></span><span class="meta"><span class="nm">'high' (25x)</span><span class="hx">#d55e00</span><span class="ro">Okabe-Ito vermilion — same as the accent vermilion</span></span></div>
+  </div>
+
+  <h3>Categorical — cluster identity</h3>
+  <p>Glomerulus and odorant clusters A–G use matplotlib <code>tab10</code>, positions 0–6. The cluster ↔ colour assignment is <strong>fixed across every figure in the paper</strong> — cluster D is the same red in Fig 3 as in Fig 7. If you introduce a panel with clusters in it, use these, in this order.</p>
+  <div class="clusters">
+    <div class="cl"><span class="chip" style="background:#1f77b4"></span><span class="lb">A</span><span class="hx">1f77b4</span></div>
+    <div class="cl"><span class="chip" style="background:#ff7f0e"></span><span class="lb">B</span><span class="hx">ff7f0e</span></div>
+    <div class="cl"><span class="chip" style="background:#2ca02c"></span><span class="lb">C</span><span class="hx">2ca02c</span></div>
+    <div class="cl"><span class="chip" style="background:#d62728"></span><span class="lb">D</span><span class="hx">d62728</span></div>
+    <div class="cl"><span class="chip" style="background:#9467bd"></span><span class="lb">E</span><span class="hx">9467bd</span></div>
+    <div class="cl"><span class="chip" style="background:#8c564b"></span><span class="lb">F</span><span class="hx">8c564b</span></div>
+    <div class="cl"><span class="chip" style="background:#e377c2"></span><span class="lb">G</span><span class="hx">e377c2</span></div>
+  </div>
+
+  <h3>Categorical — model and condition series</h3>
+  <p>Okabe-Ito, which is colourblind-safe.</p>
+  <div class="swatches">
+    <div class="sw"><span class="chip" style="background:#0072b2"></span><span class="meta"><span class="nm">accent_blue</span><span class="hx">#0072b2</span><span class="ro">primary metric (Q²)</span></span></div>
+    <div class="sw"><span class="chip" style="background:#d55e00"></span><span class="meta"><span class="nm">accent_vermilion</span><span class="hx">#d55e00</span><span class="ro">overfit / canonical comparison</span></span></div>
+    <div class="sw"><span class="chip" style="background:#009e73"></span><span class="meta"><span class="nm">accent_green</span><span class="hx">#009e73</span><span class="ro">“wins”</span></span></div>
+    <div class="sw"><span class="chip" style="background:#888888"></span><span class="meta"><span class="nm">accent_grey</span><span class="hx">#888888</span><span class="ro">“loses” / neutral</span></span></div>
+    <div class="sw"><span class="chip" style="background:#bbbbbb"></span><span class="meta"><span class="nm">shuffled_grey</span><span class="hx">#bbbbbb</span><span class="ro">shuffled / null distributions</span></span></div>
+    <div class="sw"><span class="chip" style="background:#9b5bd0"></span><span class="meta"><span class="nm">nmf_purple</span><span class="hx">#9b5bd0</span><span class="ro">NMF</span></span></div>
+    <div class="sw"><span class="chip" style="background:#777777"></span><span class="meta"><span class="nm">pca_grey</span><span class="hx">#777777</span><span class="ro">PCA, against NMF</span></span></div>
+    <div class="sw"><span class="chip" style="background:#dcdcdc"></span><span class="meta"><span class="nm">neutral_gainsboro</span><span class="hx">#dcdcdc</span><span class="ro">not measured (never &ldquo;zero&rdquo;)</span></span></div>
+  </div>
+  <div class="rule-box">
+    <span class="rb-title">Rule</span>
+    <p>Nulls and shuffles are <strong>always grey</strong>, never a colour. The eye should read “this is the boring comparison” before it reads the axis label.</p>
+  </div>
+
+  <h3>Greys, floors, and missing data</h3>
+  <ul>
+    <li><strong>Zero is not missing, and they must not share a colour.</strong> A zero response is a <em>measurement</em> and belongs at the floor of the sequential ramp (black in magma). <code>gainsboro</code> #dcdcdc means <strong>not measured</strong>. On a sparse response matrix — and most of ours are sparse — colouring zeros grey turns the majority of the panel into “no data” and makes the figure claim something false. Keep <code>vmin = 0</code> on sparse matrices and reserve grey for genuine gaps.</li>
+    <li><strong>A floor above zero is a separate, deliberate choice.</strong> Example glomerular maps clip at <code>vmin = 0.5, vmax = 3.5</code> in log(1+ΔF/F) so responders saturate and shrunken predictions become visible — a full-range scale hides that effect. But a floor <em>hides data</em>, so say in the caption that you set one and what it was.</li>
+    <li><strong>Identity and unity lines</strong>: grey <code>#737373</code>, dashed, ~1.2 pt, drawn <em>under</em> the data.</li>
+  </ul>
+
+  <h3>What not to use</h3>
+  <p>No jet, no rainbow, no hsv. No red/green as the only distinction between two conditions. Don’t recolour a panel to make it pop — panels sharing a quantity share a colour scale.</p>
+</section>
+
+<section id="type">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Typography</h2></div>
+  <div class="tw"><table>
+    <thead><tr><th>Element</th><th class="mono">Size</th><th>Weight</th></tr></thead>
+    <tbody>
+      <tr><td>Tick labels</td><td class="mono">8 pt <span class="note">(7 when crowded)</span></td><td>normal</td></tr>
+      <tr><td>Axis labels, in-panel annotation</td><td class="mono">9–10 pt</td><td>normal</td></tr>
+      <tr><td>Panel titles</td><td class="mono">9–11 pt</td><td>normal</td></tr>
+      <tr><td>Panel letters (A, B, C…)</td><td class="mono">11–12 pt</td><td><strong>bold</strong></td></tr>
+      <tr><td>Figure-level titles</td><td class="mono">12–13 pt</td><td>bold</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Font: Arial</strong>, with Helvetica and DejaVu Sans as fallbacks. Not because Arial is beautiful — because it is installed on the Macs where these get assembled, so Illustrator doesn’t flag imported text as a missing font and silently substitute it. If your tool defaults to something else (Helvetica Neue, Calibri, DejaVu), change it before exporting.</p>
+  <p>Sizes above are <strong>final, on-the-page sizes</strong>. If a figure will be reduced to fit a column, render it at the final size rather than shrinking it later.</p>
+  <p>Panel letters sit outside the axes, upper-left, roughly at axes-fraction <code>(−0.10, 1.05)</code>. Capital, bold, no parentheses or periods: <code>A</code>, not <code>(a)</code>.</p>
+</section>
+
+<section id="axes">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Geometry and axes</h2></div>
+  <ul>
+    <li><strong>Widths</strong>: single-column ~3.5 in, full-width ~7 in at final print size. Working renders in the repo are much larger (11–17 in) and scaled at assembly — if you’re handing over a finished panel, hand it over at final size.</li>
+    <li><strong>DPI</strong>: 300 minimum for any raster; 600 for final submission. Working previews are 200.</li>
+    <li><strong>Spines</strong>: top and right <strong>off</strong> on panels with data axes — scatters, lines, bars. Left and bottom stay. <strong>Matrices and images keep their full frame</strong>: there the frame is the extent of the data, not decoration, and dropping it leaves the cells floating.</li>
+    <li><strong>Ticks</strong>: label size 8. On heatmaps, tick length 0 — labels only, no marks.</li>
+    <li><strong>Grids</strong>: off, unless a grid carries real information.</li>
+    <li><strong>Aspect</strong>: matrices whose axes are the same kind of thing (odorant × odorant, cluster × cluster) are square. Matrices whose axes differ (glomerulus × odorant) fill their cell.</li>
+    <li><strong>Colorbars are shared.</strong> When several panels show the same quantity, draw <em>one</em> colorbar for the group, positioned just outside the block it serves. Per-panel colorbars imply per-panel scales.</li>
+  </ul>
+</section>
+
+<section id="types">
+  <div class="sec-head"><span class="sec-num">04</span><h2>By figure type</h2></div>
+
+  <h3>Scatter and parity plots</h3>
+  <ul>
+    <li>Dense clouds: small markers (area ≈ 1–7 pt²), <strong>no marker edge</strong>, alpha 0.2–0.6. Let overplotting show density.</li>
+    <li>Emphasis points: large (area ≈ 40–150 pt²), <strong>white edge</strong> ~1 pt, drawn on top. The white ring is what separates a highlighted point from the cloud.</li>
+    <li>Parity line: dashed, grey <code>#737373</code>, ~1.2 pt, <strong>underneath</strong> the data.</li>
+    <li>Parity panels are <strong>square</strong>, with equal x and y limits. Unequal axes misrepresent the deviation.</li>
+    <li>Put the statistic (r, Q², n) in the panel as text, not in the title — it survives cropping and reflows better in Illustrator.</li>
+  </ul>
+
+  <h3>Heatmaps and matrices</h3>
+  <ul>
+    <li><strong>Nearest-neighbour interpolation</strong>, never bilinear. These are discrete measurements; smoothing invents structure.</li>
+    <li>Cluster and block boundaries: <strong>black, 0.8 pt</strong>, drawn over the cells.</li>
+    <li>Row and column order is meaningful — state the ordering (seriated? by cluster? by chemical class?) in the caption. Within a cluster, responders come before recruited/non-responders, contiguously.</li>
+    <li>Missing cells: opaque gainsboro — <em>not</em> transparent (see §6).</li>
+    <li>Small matrices (7×7, say) are drawn as <strong>vector rectangles, one per cell</strong>, not as an image (see §6).</li>
+  </ul>
+
+  <h3>Spatial maps — glomerular topography</h3>
+  <ul>
+    <li>Glomeruli as filled circles on a fixed spatial frame, magma, generous marker size. They should read as a map, not a scatter.</li>
+    <li><strong>Fixed limits across every map in a comparison</strong> — low vs high concentration, observed vs predicted, subject vs subject. If two maps in one figure have different scales, the figure is making a false claim.</li>
+    <li>Sub-floor glomeruli in gainsboro, so they read as context.</li>
+    <li>One shared colorbar for the whole array.</li>
+  </ul>
+
+  <h3>Line plots and sweeps</h3>
+  <ul>
+    <li>Real series in colour; nulls and shuffles in grey.</li>
+    <li>Line weight ~1.5–1.8 pt; markers only when x-values are few and discrete.</li>
+    <li>Where a sweep has a chosen operating point (the selected NMF rank, say), mark it explicitly rather than leaving the reader to infer it.</li>
+    <li>Spread bands: filled, same hue as the line, low alpha, no edge.</li>
+  </ul>
+
+  <h3>Bar charts</h3>
+  <p>Used sparingly in this figure set, deliberately — where a bar chart would show a handful of values, prefer a dot or strip plot with the individual observations visible. If a bar is right:</p>
+  <ul>
+    <li>Zero baseline, always.</li>
+    <li>Single hue from the palette; don’t colour bars to differentiate them when the axis already labels them.</li>
+    <li>Show individual points over the bar when n is small.</li>
+    <li>No 3D bars, no gradients, no drop shadows.</li>
+  </ul>
+
+  <h3>Cumulative distributions</h3>
+  <p>Preferred over histograms for comparing conditions: no bin-width choice to defend, and the whole distribution is visible at once.</p>
+  <ul>
+    <li>One step line per condition in the condition colours, drawn weakest → strongest so legend order matches physical order. ~1.6 pt.</li>
+    <li>y from 0 to 1, labelled <code>cumul. prob.</code></li>
+    <li>Where a specific quantile matters, mark it with a rule rather than leaving the reader to read it off.</li>
+  </ul>
+
+  <h3>Box plots</h3>
+  <ul>
+    <li>One box per condition, filled with the condition colour; black median and whiskers at ~0.8–1.0 pt.</li>
+    <li><strong>Log axis where the quantity spans orders of magnitude</strong> — delivered concentration does. The “zero baseline always” rule is about <em>bars</em>; it does not apply on a log scale, where zero does not exist.</li>
+    <li>Show outliers as small diamonds rather than hiding them.</li>
+  </ul>
+
+  <h3>Rank-aligned response heatmaps</h3>
+  <p>Each row sorted by magnitude and centred on its own peak, so tuning <em>breadth</em> is comparable across rows regardless of which odorant drove each one.</p>
+  <ul>
+    <li>Sort descending, peak at the centre column, mirror out to ±N.</li>
+    <li>Label the axis <code>+N | 1 | +N</code> — it is a rank, not an odorant identity.</li>
+    <li>Pad short rows with NaN → grey, so a short row is visibly different from a row of zeros.</li>
+  </ul>
+
+  <h3>Category strips on matrix axes</h3>
+  <ul>
+    <li>One coloured segment per contiguous run, with the family name in the same colour.</li>
+    <li>Categories must be <strong>grouped</strong> in the plotting order — the strip makes that obvious, which is the point of drawing it.</li>
+    <li>Use one mapping across every panel showing the same categories.</li>
+  </ul>
+
+  <h3>Schematics</h3>
+  <ul>
+    <li>Same fonts and palette as the data panels, so a schematic doesn’t look imported from a different paper.</li>
+    <li>Large glyph letters (X, W, Y) at ~20 pt; captions at ~11 pt.</li>
+    <li>Build them so the pieces stay separable in Illustrator — grouped, labelled, not flattened.</li>
+    <li>3D and WebGL scenes rasterise on export. Render those at high resolution as a static image and treat them as raster elements deliberately.</li>
+  </ul>
+</section>
+
+<section id="export">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Export — the Illustrator contract</h2></div>
+  <p>Every panel gets exported three ways:</p>
+  <div class="tw"><table>
+    <thead><tr><th>Format</th><th>Background</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">PNG</td><td>white</td><td>preview, slides, emailing around</td></tr>
+      <tr><td class="mono">PDF</td><td>transparent</td><td>assembly in Illustrator</td></tr>
+      <tr><td class="mono">SVG</td><td>transparent</td><td>assembly, web</td></tr>
+    </tbody>
+  </table></div>
+  <p>Non-negotiable properties of the vector exports:</p>
+  <ol>
+    <li><strong>Text stays live text.</strong> Not outlines, not paths, not pixels. You must be able to click a label in Illustrator and retype it.</li>
+    <li><strong>Fonts embedded as TrueType (Type 42), not Type 3.</strong> Type 3 text arrives as unselectable garbage.</li>
+    <li><strong>Transparent background</strong>, so panels layer without white boxes.</li>
+    <li><strong>Cropped tight</strong> to the content — no acres of whitespace to trim by hand.</li>
+  </ol>
+  <h3>How to get there</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Tool</th><th>Recipe</th></tr></thead>
+    <tbody>
+      <tr><td><strong>matplotlib</strong></td><td><code>svg.fonttype="none"</code>, <code>pdf.fonttype=42</code>, <code>ps.fonttype=42</code>; save with <code>bbox_inches="tight"</code> and <code>transparent=True</code> for pdf/svg.</td></tr>
+      <tr><td><strong>MATLAB</strong></td><td><code>exportgraphics(fig,'panel.pdf','ContentType','vector','BackgroundColor','none')</code>. Avoid <code>print -dpdf</code> with painters on figures containing transparency. Check the result — MATLAB sometimes outlines text.</td></tr>
+      <tr><td><strong>R</strong></td><td><code>svglite::svglite()</code> keeps text as text (base <code>svg()</code> is less reliable); <code>ggsave(..., device = cairo_pdf)</code> embeds fonts properly.</td></tr>
+      <tr><td><strong>Prism</strong></td><td>Export as PDF or EPS — <em>not</em> high-resolution TIFF. In export options, keep “Text as text”.</td></tr>
+      <tr><td><strong>Igor</strong></td><td>Export as PDF with “Embed fonts” on.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="rule-box">
+    <span class="rb-title">If your tool can’t</span>
+    <p>If it simply cannot emit editable-text vector, say so and send the highest-resolution raster you can — 600 dpi at final size — <strong>plus the underlying numbers</strong>. A panel can be rebuilt from data, but not from a JPEG.</p>
+  </div>
+</section>
+
+<section id="gotchas">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Illustrator gotchas</h2></div>
+  <p>All of these are real failures that cost real time on this project.</p>
+
+  <div class="gotcha">
+    <h4><span class="tag">6.1</span>Missing-font substitution</h4>
+    <p>Text exported in a font the assembling machine lacks gets flagged (pink highlight) and silently substituted, changing metrics and breaking layout. Arial avoids this. Check every imported panel for the missing-font warning before you trust it.</p>
+  </div>
+  <div class="gotcha">
+    <h4><span class="tag">6.2</span>Transparent rasters become soft masks</h4>
+    <p>A raster with an alpha channel exports into PDF as a soft-masked image, and Illustrator renders those wrong. Make raster elements <strong>opaque</strong>. For empty or sub-threshold cells, set an opaque grey rather than leaving them transparent.</p>
+  </div>
+  <div class="gotcha">
+    <h4><span class="tag">6.3</span>Tiny rasters get dropped</h4>
+    <p>A small image — a 7×7 heatmap, say — can be dropped entirely on import; the panel arrives with its cells simply missing. For any small matrix, draw each cell as an explicit vector rectangle. It looks identical in the PNG and survives the round trip.</p>
+  </div>
+  <div class="gotcha">
+    <h4><span class="tag">6.4</span>Never resize in Illustrator</h4>
+    <p>Scaling a vector panel after import corrupts stroke weights and throws off font sizes relative to the rest of the page. <strong>Re-render at the target size</strong> instead, scaling figure dimensions, font sizes, line widths, and marker areas together. Marker <em>area</em> scales as the square of the linear factor.</p>
+  </div>
+  <div class="gotcha">
+    <h4><span class="tag">6.5</span>Use vector shading, not raster overlays</h4>
+    <p>To wash out or highlight a region, draw a semi-transparent vector rectangle with a visible edge — it stays selectable and editable, and doesn’t trigger 6.2. A raster overlay does the opposite of both.</p>
+  </div>
+</section>
+
+<section id="handtune">
+  <div class="sec-head"><span class="sec-num">07</span><h2>What gets hand-tuned</h2></div>
+  <p>The repo’s stated principle is that outputs are reproducible from (config + data), and that touch-ups belong upstream in the generating code rather than on the exported file. In practice a small, bounded set of things are done by hand in Illustrator:</p>
+  <ul>
+    <li><strong>Multi-panel assembly</strong> — arranging panels into Fig 3, Fig 5, and so on.</li>
+    <li><strong>Panel letters</strong>, placed at assembly time.</li>
+    <li><strong>A few labels deliberately omitted from the scripts</strong> because hand placement beats any automatic rule — cluster labels on the concentration-flow figure are the example.</li>
+    <li><strong>Callouts, arrows, and brackets</strong> that annotate rather than encode data.</li>
+  </ul>
+  <div class="rule-box">
+    <span class="rb-title">Rule of thumb</span>
+    <p>If a change would alter what a reader concludes from the data, it must happen upstream and be reproducible. If it only affects arrangement and annotation, hand-work is fine.</p>
+  </div>
+  <p>Practical consequence: <strong>send the panel and the numbers behind it.</strong> A hand-edited <code>.ai</code> file with no path back to data can’t be regenerated when a reviewer asks for a change — and reviewers always ask.</p>
+</section>
+
+<section id="prov">
+  <div class="sec-head"><span class="sec-num">08</span><h2>Naming and provenance</h2></div>
+  <p>Each figure lives in its own folder under a short descriptive name — not <code>fig3</code>, which changes as the paper is reordered, but <code>pls_performance</code>, <code>nmf_per_subject</code>, <code>concentration_flow</code>. Alongside the images:</p>
+  <ul>
+    <li><code>caption.md</code> — the caption text, version-controlled</li>
+    <li><code>source.md</code> — where the data came from: paths, derivation, any SHAs</li>
+    <li>panel-level numbers as CSV where practical, with a column dictionary</li>
+  </ul>
+  <p>When you hand a panel over, include the equivalent: what it shows, what produced it, and the numbers. That’s the part that makes a figure survive revision.</p>
+</section>
+
+<section id="known">
+  <div class="sec-head"><span class="sec-num">09</span><h2>Known inconsistencies</h2></div>
+  <p>Stated plainly so nobody ports a bug.</p>
+  <ul>
+    <li><strong>Font is not uniform.</strong> Nine of twelve generator scripts set Arial explicitly; <code>nmf_clusters_main</code>, <code>pls_recruitment</code>, and <code>pls_result</code> fall through to DejaVu Sans. (<code>pls_result</code> says it does so “to match the other figures,” which was true of an earlier state of the repo and isn’t now.) <strong>Arial is the standard</strong>; those three should be brought into line.</li>
+    <li><strong>Working DPI varies</strong> — 120 to 300 across scripts. 300 is the floor for anything final.</li>
+    <li><strong>Cluster-boundary colour varies</strong> — black in the scaffolded figure, blue at 50% alpha in some working panels. Black at 0.8 pt is the standard.</li>
+    <li><strong>The older Fig 1–3/5/6 drafts used black-background hot</strong> (black → red → yellow) for ΔF heatmaps, ranked response maps and correlation matrices. They are on magma now, which sits on the same dark ground. Because zero is black, the zero/missing distinction above has to be made explicitly — missing cells in opaque <code>gainsboro</code> — where the old black ground hid both.</li>
+    <li><strong>Raw bulb activity maps are a deliberate exception.</strong> The panoramic dorsal-surface overlays keep the acquisition colormap (a jet-like blue→green→red map) rather than magma. They are photometric images reproduced as acquired, not re-plotted data, and the field reads them that way. This is the <em>only</em> sanctioned rainbow map in the paper — do not generalise it to any panel you are plotting from numbers.</li>
+    <li><strong>The diverging map is redefined in four separate files</strong> rather than imported from one place. It is identical in all four — but if you’re transcribing it, transcribe from the palette files here, which are the reference.</li>
+  </ul>
+</section>
+
+<section id="check">
+  <div class="sec-head"><span class="sec-num">10</span><h2>Handover checklist</h2></div>
+  <p>Run through this before sending a panel.</p>
+  <div class="check-grid">
+    <div class="check-card">
+      <h4>Colour</h4>
+      <ul>
+        <li><input type="checkbox" id="c1"><label for="c1">Sequential → magma; signed → diverging; categories → cluster colours</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">Diverging map centred on zero</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">Scale fixed across compared panels, limits in the caption</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">Missing/sub-threshold values opaque gainsboro</label></li>
+        <li><input type="checkbox" id="c5"><label for="c5">Nulls and shuffles grey</label></li>
+        <li><input type="checkbox" id="c6"><label for="c6">No jet, no rainbow, no red-vs-green alone</label></li>
+      </ul>
+    </div>
+    <div class="check-card">
+      <h4>Type</h4>
+      <ul>
+        <li><input type="checkbox" id="t1"><label for="t1">Arial throughout — no default snuck in</label></li>
+        <li><input type="checkbox" id="t2"><label for="t2">Ticks 8 pt · labels 9–10 pt · panel letters 11–12 pt bold</label></li>
+        <li><input type="checkbox" id="t3"><label for="t3">Sizes correct at final print size, not shrunk after</label></li>
+        <li><input type="checkbox" id="t4"><label for="t4">Panel letter bold capital, upper-left, no parentheses</label></li>
+      </ul>
+    </div>
+    <div class="check-card">
+      <h4>Axes</h4>
+      <ul>
+        <li><input type="checkbox" id="a1"><label for="a1">Top and right spines off</label></li>
+        <li><input type="checkbox" id="a2"><label for="a2">Grid off unless it carries information</label></li>
+        <li><input type="checkbox" id="a3"><label for="a3">Parity panels square, equal limits</label></li>
+        <li><input type="checkbox" id="a4"><label for="a4">Heatmaps nearest-neighbour, no smoothing</label></li>
+        <li><input type="checkbox" id="a5"><label for="a5">One shared colorbar per group</label></li>
+      </ul>
+    </div>
+    <div class="check-card">
+      <h4>Export</h4>
+      <ul>
+        <li><input type="checkbox" id="e1"><label for="e1">Vector PDF or SVG, plus a white-background PNG</label></li>
+        <li><input type="checkbox" id="e2"><label for="e2">Text still live and editable — open it and click a label</label></li>
+        <li><input type="checkbox" id="e3"><label for="e3">Fonts embedded TrueType/Type 42, not Type 3</label></li>
+        <li><input type="checkbox" id="e4"><label for="e4">Vector background transparent, cropped tight</label></li>
+        <li><input type="checkbox" id="e5"><label for="e5">Raster elements opaque and ≥300 dpi at final size</label></li>
+        <li><input type="checkbox" id="e6"><label for="e6">Small matrices drawn as vector cells</label></li>
+      </ul>
+    </div>
+    <div class="check-card">
+      <h4>Provenance</h4>
+      <ul>
+        <li><input type="checkbox" id="p1"><label for="p1">Caption text included</label></li>
+        <li><input type="checkbox" id="p2"><label for="p2">Data source stated — paths, derivation, version</label></li>
+        <li><input type="checkbox" id="p3"><label for="p3">The numbers behind the panel included as CSV</label></li>
+        <li><input type="checkbox" id="p4"><label for="p4">Nothing hand-edited that changes a reader’s conclusion</label></li>
+        <li><input type="checkbox" id="p5"><label for="p5">Named descriptively, not <code>fig3v2_final</code></label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="assets">
+  <div class="sec-head"><span class="sec-num">11</span><h2>Files</h2></div>
+  <p>Everything below lives in <code>highconc-figures/style/</code>.</p>
+  <div class="tw"><table class="assets">
+    <thead><tr><th>File</th><th>What it’s for</th></tr></thead>
+    <tbody>
+      <tr><td>STYLE_GUIDE.md</td><td>This document, in Markdown</td></tr>
+      <tr><td>CHECKLIST.md</td><td>The handover checklist as a one-pager</td></tr>
+      <tr><td>for-collaborators/</td><td><strong>The kit to hand over</strong> — paste-anywhere AI prompt, importable Python module, Claude Code skill</td></tr>
+      <tr><td>style_reference.ipynb</td><td>Every rule here, demonstrated on synthetic data — runnable with numpy + matplotlib alone</td></tr>
+      <tr><td>examples_output/</td><td>The figures that notebook writes, as PNG + PDF + SVG</td></tr>
+      <tr><td>palette/highconc_palette.csv</td><td>Every named colour → hex, RGB 0–255, RGB 0–1, and its role</td></tr>
+      <tr><td>palette/seq_magma_256.csv</td><td>Sequential map (magma), 256 steps — load directly as a colormap in MATLAB, R, ImageJ</td></tr>
+      <tr><td>palette/div_teal_gainsboro_orrd_256.csv</td><td>House diverging map, 256 steps</td></tr>
+      <tr><td>palette/highconc_swatches.ase</td><td>Adobe swatch file — drag into Illustrator, all 20 colours appear</td></tr>
+      <tr><td>palette/swatches.png · .pdf</td><td>Visual reference sheet</td></tr>
+      <tr><td>generate_assets.py</td><td>Regenerates everything in <code>palette/</code></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer>
+  <p>Derived from the generator scripts in <code>highconc-figures/figures/</code>, which remain the working reference implementation. Questions, or a case this doesn’t cover — ask before you build the panel rather than after.</p>
+</footer>
+
+</div>

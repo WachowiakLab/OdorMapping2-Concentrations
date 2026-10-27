@@ -1,0 +1,220 @@
+# The concordance manifest — the only figures this repository produces.
+#
+# `dev/concordance.py --check` compares the notebook's rendered output set
+# against the `stem`s below: anything extra is a figure nobody asked for,
+# anything missing is unfinished work, and both are silent failures without
+# something that looks. Panels are listed so a reviewer can see what is
+# claimed, and which panels of a figure are drawn here rather than elsewhere.
+#
+# Numbering follows the manuscript PDF (allfigs_hiconcms_penultimate_102126.pdf):
+# Figures 1-8 and S1-S4, with the paper's own panel letters. A panel the paper has
+# that this repo does not draw is listed as `skipped`.
+#
+# status: done | restyle | new | gap | skipped
+#   done     - exists and matches the reference
+#   restyle  - exists; needs house style / renumbering only
+#   new      - analysis or panel does not exist yet
+#   gap      - existed once, source lost, must be rebuilt from a reference image
+#   skipped  - deliberately not drawn here (that panel comes from elsewhere)
+
+main:
+- id: fig2
+  stem: fig2_response_matrix
+  title: Odorant x glomerulus responses at the three concentrations
+  supersedes: []
+  panels:
+  - panel: A
+    what: three stacked response matrices, most-sensitive / low / high, odorants in chemical-class order
+    status: done
+  - panel: B
+    what: sorted response spectra of all glomeruli
+    status: skipped
+  - panel: C
+    what: distribution of the number of glomeruli per odorant
+    status: skipped
+  - panel: D
+    what: cumulative distribution of lifetime sparseness
+    status: skipped
+  - panel: E
+    what: low vs high lifetime sparseness
+    status: skipped
+- id: fig3
+  stem: fig3_correlational_structure
+  title: Correlational structure of odor representations vs. concentration
+  supersedes:
+  - recruitment_fig7_matrix
+  panels:
+  - panel: A
+    what: MACCS chemical-similarity matrix (cosine)
+    status: done
+  - panel: B
+    what: odorant x odorant response correlation, most-sensitive
+    status: done
+  - panel: C
+    what: odorant x odorant response correlation, low
+    status: done
+  - panel: D
+    what: odorant x odorant response correlation, high
+    status: done
+  - panel: E
+    what: binary recruitment matrix, observed
+    status: done
+  - panel: F
+    what: response spectra of four glomeruli (173, 211, 97, 155), low above / high below
+    status: done
+- id: fig3_supp
+  stem: fig3_supp_threshold_robustness
+  title: Recruitment-matrix robustness to threshold (not in the current paper PDF)
+  supersedes:
+  - recruitment_fig9_threshold_sweep
+  panels:
+  - panel: '-'
+    what: recruitment matrix at row-rule fractions 0.20/0.35/0.50/0.65/0.80
+    status: done
+- id: fig4
+  stem: fig4_tuning_by_cluster
+  title: Glomerular clusters, and how they carry over when high-only glomeruli are folded in
+  supersedes:
+  - fig4_nmf_clusters
+  panels:
+  - panel: A
+    what: glomerulus x glomerulus correlation, low
+    status: done
+  - panel: B
+    what: sorted odorants x glomeruli response heatmap (peak-normalised)
+    status: done
+  - panel: C
+    what: clusters 1 and 3, per-subject response matrices
+    status: done
+  - panel: D
+    what: Sankey, original clusters to clusters with the recruited non-responders folded in
+    status: done
+- id: fig5
+  stem: fig5_class_by_cluster
+  title: Chemical-class preference of each cluster, low and high
+  supersedes: []
+  panels:
+  - panel: A
+    what: tuning by cluster, mirrored bars -- drawn with plotly as its own figure, stem fig5_tuning_by_cluster_A
+    status: done
+  - panel: B
+    what: chemical class x cluster, low beside high
+    status: done
+- id: fig5a
+  stem: fig5_tuning_by_cluster_A
+  title: Tuning by cluster, mirrored bars of the fraction of glomeruli responding (plotly)
+  supersedes: []
+  panels:
+  - panel: A
+    what: seven per-cluster mirrored bar plots, low left and high right, odorants in Figure 3's order
+    status: done
+- id: fig6
+  stem: fig6_spatial_by_cluster
+  title: Spatial mapping of glomeruli by cluster
+  supersedes:
+  - fig5_spatial_by_cluster
+  panels:
+  - panel: A
+    what: seven per-cluster glomerular maps, clusters 1-7 (membership only)
+    status: done
+  - panel: B
+    what: max-projection bulb images by odorant class
+    status: skipped
+- id: fig7
+  stem: fig7_pls
+  title: PLS-R, predicted spectra and the W matrix
+  supersedes:
+  - fig6_pls
+  - pls_schematic
+  - pls_schematic_7glom
+  - w_block_structure
+  panels:
+  - panel: A
+    what: input space / map W / output space schematic
+    status: skipped
+  - panel: B
+    what: measured vs held-out predicted high, glomeruli 211 and 97
+    status: done
+  - panel: C
+    what: three cartoons of weight-matrix structure
+    status: skipped
+  - panel: D
+    what: W, low -> high concentration mapping, every weight, cluster-blocked
+    status: done
+- id: fig8
+  stem: fig8_motif_transfer
+  title: Motif transfer between glomerular groups
+  supersedes:
+  - fig7_motif_transfer
+  panels:
+  - panel: A
+    what: three-step procedure schematic
+    status: skipped
+  - panel: B
+    what: source x target permutation p, significant pairs boxed in green
+    status: done
+  - panel: C
+    what: source x target reduction in prediction error
+    status: done
+  variants:
+  - id: clusters
+    what: grouped by NMF cluster (drawn)
+    status: done
+  - id: chem_class
+    what: same test grouped by chemical class (computed and printed, no longer drawn)
+    status: skipped
+supplemental:
+- id: supp_dim_choice
+  stem: supp_nmf_dim_choice
+  title: NMF dimensionality choice, low concentration
+  supersedes:
+  - supp_nmf_dim_choice_1x
+  - supp_nmf_dim_choice_25x
+  panels:
+  - panel: A
+    what: cumulative variance explained
+    status: done
+  - panel: B
+    what: slope of the explained-variance curves
+    status: done
+  - panel: C
+    what: adjusted Rand index across NMF seeds
+    status: done
+  - panel: (dropped)
+    what: consensus-matrix insets, and the whole 25x block (D-F)
+    status: skipped
+- id: supp_per_subject_heatmaps
+  stem: supp_per_subject_heatmaps
+  title: Figure S2 - the same structure within each subject, response heatmaps
+  supersedes:
+  - supp_per_subject
+  - supp_nmf_per_subject
+  panels:
+  - panel: '-'
+    what: per-subject S1-S4 response heatmaps, odorants in chemical-class order, log scale
+    status: done
+- id: supp_per_subject_topography
+  stem: supp_per_subject_topography
+  title: Figure S3 - cluster locations on the bulb, per subject
+  supersedes: []
+  panels:
+  - panel: '-'
+    what: per-subject topography, one row per subject, one column per cluster
+    status: done
+- id: supp_parity
+  stem: supp_parity
+  title: Figure S4 - parity of the linear model over every responding pair
+  supersedes:
+  - pls_perf_fig1_population_rules
+  - pls_result_panels
+  panels:
+  - panel: '-'
+    what: all-responding-pairs hexbin, with the smallest-observed-response line
+    status: done
+  - panel: (dropped)
+    what: cluster x odorant and cluster x class parity panels
+    status: skipped
+retired:
+- stem: supp_tuning_flow
+  why: concentration flow through tuning space is not in the current paper draft
+undecided: []

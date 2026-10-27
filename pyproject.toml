@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "highconc-figures"
+version = "0.1.0"
+description = "Figure code for the high-concentration glomerular odor-mapping manuscript"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "matplotlib",
+    "seaborn",
+    "pyyaml",
+    # Workhorse package for the clustering path. Pinned to a commit so a clone
+    # rebuilds the same figures. Bump the SHA deliberately, never float it.
+    "glom-explorer @ git+https://github.com/CastroLab/glom-explorer.git@2d0207a736d2eed733062d08a70a77741f0a48fb",
+]
+
+[project.optional-dependencies]
+# The PLS figures (recruitment, performance, W-structure, model overview,
+# result, schematic, concentration flow). Kept optional so the clustering path
+# — Matt's priority, and what Joel needs — installs without it.
+pls = [
+    "plotly",
+    "pls-explorer @ git+https://github.com/CastroLab/pls-explorer.git@c1d4163f3b325529337ddff34cd89cb19810489b",
+]
+# Chemical fingerprints for Fig 3D (MACCS similarity over the 59 odorants'
+# SMILES). Optional on purpose: `highconc.chem` computes the 59x59 matrix once
+# and caches it to data/chem/, so rendering the notebook never needs RDKit.
+# Only rebuilding the cache does.
+chem = ["rdkit"]
+# Fig 5A is drawn with plotly and exported through kaleido. kaleido 0.1.0.post1 is the version
+# that works with plotly 5.x on Windows (0.2.1 hung); with plotly 6 use kaleido 1.x, which needs Chrome.
+plotly-export = ["plotly", "kaleido==0.1.0.post1"]
+notebook = ["jupyterlab", "ipykernel", "jupytext"]
+dev = ["pillow"]
+
+[tool.setuptools.packages.find]
+include = ["highconc*"]

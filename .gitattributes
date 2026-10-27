@@ -1,0 +1,8 @@
+# Strip outputs from committed notebooks via nbstripout.
+# Install once per clone:
+#   pip install nbstripout
+#   nbstripout --install --attributes .gitattributes
+#
+# Outputs remain visible locally and in HTML exports; git history stays clean.
+*.ipynb filter=nbstripout
+*.ipynb diff=ipynb
