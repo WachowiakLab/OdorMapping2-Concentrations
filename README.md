@@ -11,8 +11,19 @@ College, Lewiston, ME, 04240, USA.
 UT, 84112, USA.
 * the first two authors contributed equally
 
-Principal Code Credit: Jason Castro
-From original repostory: https://github.com/WachowiakLab/highconc-figures-lab.git
+
+## Credits
+Principal Code Credit: Jason Castro. The analysis in these figures is done by two packages from the Castro lab. 
+
+- **[glom-explorer](https://github.com/CastroLab/glom-explorer)** (`glom_explorer`)
+  — the glomerular response data, NMF clustering (k = 7), tuning, selectivity and
+  topography analyses behind Figs 2, 4, 5, 6 and S1–S3.
+- **[pls-explorer](https://github.com/CastroLab/pls-explorer)** (`pls_explorer`)
+  — the PLS-R model that predicts high-concentration responses from
+  low-concentration ones, behind Figs 3E, 7 and 8. The saved baseline run in
+  `data/pls_results/baseline/` is a copy of its output.
+Both are repositories and are pinned to a commit in `pyproject.toml`.
+
 
 Everything is drawn from one notebook, which ships in **two editions**:
 
