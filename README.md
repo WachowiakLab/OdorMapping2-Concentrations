@@ -40,6 +40,17 @@ PNG, PDF and SVG.
 
 Open the human edition unless you specifically want the provenance.
 
+
+## Data Availability
+The full matrices (`low_all_subjects.csv` and `high_all_subjects.csv`) are found in `data\full_datasets`.
+Glomerular identity and odor indexing is identical for the two datasets.
+- **Rows** are glomeruli: `subject` (1-4), `glom` glomerulus index, `x-Pos`, `y-Pos`, then one column per odorant.
+- **Glomeruli** are the raw set (376) used in the manuscript.
+- **X and Y** are micron coordinates with a zero reference for the midline for the centroid of every Glomerulus. 
+- Odorant names (columns 5 through 63) are preceded by the odor code used in Burton et al. 2022 (see [OdorMappingData](https://github.com/WachowiakLab/OdorMappingData)). Odorants are indexed in the same order as displayed in the Figures.
+- Values for glomerular responses are expressed as delta F, after manual segmentation as described in the Methods.
+
+
 ## Install
 
 Needs Python ≥ 3.11 and HTTPS access to the two private workhorse repos (a GitHub account with access to CastroLab, signed in through a personal access token or the GitHub CLI credential helper).
